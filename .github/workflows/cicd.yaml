@@ -1,0 +1,22 @@
+name: Classic Docker Build
+
+on:
+  push:
+    branches:
+      - main  # change si besoin
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker
+        uses: docker/setup-action@v2
+
+      - name: Build Docker image
+        run: docker build -t fastapi-helloworld:latest .
+
