@@ -1,10 +1,15 @@
 name: Classic Docker Build
 
+name: Build Docker Image
+
 on:
   push:
     branches:
-      - main  # change si besoin
+      - main
   pull_request:
+    branches:
+      - main
+
 
 jobs:
   build:
