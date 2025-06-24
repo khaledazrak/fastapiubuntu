@@ -1,12 +1,5 @@
-name: Classic Docker Build
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+name: My first workflow
+on: push 
 
 jobs:
   build:
