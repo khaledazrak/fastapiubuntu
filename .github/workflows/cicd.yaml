@@ -1,7 +1,5 @@
 name: Classic Docker Build
 
-name: Build Docker Image
-
 on:
   push:
     branches:
@@ -9,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
 
 jobs:
   build:
@@ -19,9 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Docker
-        uses: docker/setup-action@v2
-
+ 
       - name: Build Docker image
         run: docker build -t fastapi-helloworld:latest .
 
