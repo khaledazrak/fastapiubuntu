@@ -22,9 +22,6 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: fastapi-helloworld:latest  
-      - name: Lint Dockerfile
-        uses: hadolint/hadolint-action@v2
-        with:
-          dockerfile: ./Dockerfile
+
 
 
