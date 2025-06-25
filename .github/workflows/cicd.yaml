@@ -8,9 +8,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
  
       - name: Build Docker image
         run: docker build -t fastapi-helloworld:latest .
-        
+
+      - name: Docker for testing
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: false
+          tags: fastapi-helloworld:latest
+
 
