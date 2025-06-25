@@ -12,4 +12,5 @@ jobs:
  
       - name: Build Docker image
         run: docker build -t fastapi-helloworld:latest .
+        
 
