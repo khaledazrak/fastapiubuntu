@@ -17,3 +17,6 @@ jobs:
       
       - name: Launch Docker
         run: docker run -d -p 8000:8000 fastapi-helloworld:latest
+
+      - name: Launch Docker
+        run: curl http://localhost:8000
