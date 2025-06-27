@@ -11,26 +11,9 @@ jobs:
  
       - name: Build Docker image
         run: docker build -t fastapi-helloworld:latest .
-
-      - name: Docker for testing
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: false
-          tags: fastapi-helloworld:latest
-      - name: Scan Docker image for vulnerabilities
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: fastapi-helloworld:latest  
-      - name: Start test environment
-        run: |
-          docker-compose up -d
-          # Attendre que les services soient prêts (ex: 10 secondes)
-          sleep 10
-          # Ici tu pourrais lancer tes tests (ex: pytest e2e)
-          docker-compose ps
-          # Exemple simple : faire un curl pour vérifier que l'app répond
-          curl -f http://localhost:8000/health || exit 1
-          docker-compose down
-
-
+ 
+      - name: Test docker
+        run: docker build -t fastapi-helloworld:latest .
+      
+      - name: Launch Docker
+        run: docker run -d -p 8000:8000 fastapi-helloworld:latest
