@@ -8,7 +8,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
- 
+
+      - name: Login to Docker HUB
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
       - name: Build Docker image
         run: docker build -t fastapi-helloworld:latest .
  
@@ -22,6 +25,9 @@ jobs:
         run: |
           sleep 10
           curl http://localhost:8000/helloworld
+
+      - name: Show container logs (debug)
+        run: docker logs khaled
 
       - name: Show container logs (debug)
         run: docker logs khaled
