@@ -31,3 +31,5 @@ jobs:
 
       - name: Show container logs (debug)
         run: docker logs khaled
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/fastapi-helloworld:latest
